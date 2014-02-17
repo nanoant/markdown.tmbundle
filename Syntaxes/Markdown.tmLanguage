@@ -1280,23 +1280,26 @@
 				</dict>
 				<key>raw</key>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>(`+)</string>
+					<key>beginCaptures</key>
 					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.raw.markdown</string>
-						</dict>
-						<key>2</key>
-						<dict/>
-						<key>3</key>
+						<key>0</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.raw.markdown</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>(`+)([^`]|(?!(?&lt;!`)\1(?!`))`)*+(\1)</string>
+					<key>end</key>
+					<string>(?&lt;!`)\1(?!`)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.raw.markdown</string>
+						</dict>
+					</dict>
 					<key>name</key>
 					<string>markup.raw.inline.markdown</string>
 				</dict>
