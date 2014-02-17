@@ -451,54 +451,38 @@
 					<key>name</key>
 					<string>meta.link.reference.def.markdown</string>
 				</dict>
-				<key>list_paragraph</key>
-				<dict>
-					<key>begin</key>
-					<string>(?:^|\G)\1\2</string>
-					<key>name</key>
-					<string>meta.paragraph.markdown</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#inline</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>text.html.basic</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#heading-setext</string>
-						</dict>
-					</array>
-					<key>while</key>
-					<string>(?:^|\G)\1\2</string>
-				</dict>
 				<key>lists</key>
 				<dict>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>begin</key>
-							<string>(?:^|\G)([ ]{0,3})(?:[*+-])([ ]{1,3}|\t)</string>
+							<string>(?:^|\G)([ ]{0,3})([*+-])([ ]{1,3}|\t)</string>
 							<key>beginCaptures</key>
 							<dict>
-								<key>3</key>
+								<key>2</key>
 								<dict>
 									<key>name</key>
 									<string>punctuation.definition.list.markdown</string>
 								</dict>
 							</dict>
 							<key>comment</key>
-							<string>Currently does not support un-indented second lines.</string>
+							<string>Supports following lines as long there is minimal indent</string>
 							<key>name</key>
 							<string>markup.list.unnumbered.markdown</string>
 							<key>patterns</key>
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#list_paragraph</string>
+									<string>#inline</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>text.html.basic</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#heading-setext</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -506,26 +490,36 @@
 								</dict>
 							</array>
 							<key>while</key>
-							<string>\G(?:\1\2|$)</string>
+							<string>\G(?=\1\3|$)</string>
 						</dict>
 						<dict>
 							<key>begin</key>
-							<string>(^|\G)(?:[ ]{0,3})(?:[0-9]+\.)([ ]{1,3}|\t)</string>
+							<string>(^|\G)(?:[ ]{0,3})([0-9]+\.)([ ]{1,3}|\t)</string>
 							<key>beginCaptures</key>
 							<dict>
-								<key>3</key>
+								<key>2</key>
 								<dict>
 									<key>name</key>
 									<string>punctuation.definition.list.markdown</string>
 								</dict>
 							</dict>
+							<key>comment</key>
+							<string>Supports following lines as long there is minimal indent</string>
 							<key>name</key>
 							<string>markup.list.numbered.markdown</string>
 							<key>patterns</key>
 							<array>
 								<dict>
 									<key>include</key>
-									<string>#list_paragraph</string>
+									<string>#inline</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>text.html.basic</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#heading-setext</string>
 								</dict>
 								<dict>
 									<key>include</key>
@@ -533,7 +527,7 @@
 								</dict>
 							</array>
 							<key>while</key>
-							<string>\G(?:\1\2|$)</string>
+							<string>\G(?=\1\3|$)</string>
 						</dict>
 					</array>
 				</dict>
