@@ -43,6 +43,13 @@
 				</dict>
 			</array>
 		</dict>
+		<key>source.embedded.cpp.markdown$, source.embedded.cpp.markdown meta$</key>
+		<dict>
+			<key>comment</key>
+			<string>embedding in meta is workaround for $base pointing back to Markdown not C++</string>
+			<key>include</key>
+			<string>source.c++</string>
+		</dict>
 		<key>source.embedded.diff.markdown$</key>
 		<dict>
 			<key>patterns</key>
@@ -90,6 +97,26 @@
 				<dict>
 					<key>include</key>
 					<string>source.makefile</string>
+				</dict>
+			</array>
+		</dict>
+		<key>source.embedded.mathematica.markdown$</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.mathematica</string>
+				</dict>
+			</array>
+		</dict>
+		<key>source.embedded.nim.markdown$</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.nim</string>
 				</dict>
 			</array>
 		</dict>
